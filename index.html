@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <form>
+      <label for="upload" id="upload-btn">
+        <span id="text">Choose file</span>
+      </label>
+      <input type="file" name="upload" id="upload" />
+    </form>
+  </body>
+</html>
+
+<script>
+  const log = console.log;
+
+  const input = document.getElementById('upload');
+  const text = document.getElementById('text');
+
+  input.addEventListener('change', () => {
+    const path = input.value.split('\\');
+    const fileName = path[path.length - 1];
+    text.innerText = fileName || 'Choose file';
+    log({ fileName });
+  });
+</script>
